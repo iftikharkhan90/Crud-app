@@ -27,7 +27,7 @@ import axios from 'axios'
 
    componentDidMount = () => {
 
-    axios.get('http://localhost:8000/api/crud')
+    axios.get('/api/crud')
         .then(response => {
 
             this.setState(prevState => ({
@@ -48,7 +48,7 @@ import axios from 'axios'
       setTimeout(() => {
           {
 
-              axios.post('http://localhost:8000/api/crud/save',  {  data })
+              axios.post('/api/crud/save',  {  data })
                   .then(response => {
                     console.log(response.data.data)
                       let newUser = response.data.data
@@ -77,7 +77,7 @@ import axios from 'axios'
       id: oldData._id
   }
 
-  axios.put('http://localhost:8000/api/crud/update', { data })
+  axios.put('/api/crud/update', { data })
       .then(response => {
           console.log(response.data)
       }).catch(err => {
@@ -91,7 +91,7 @@ import axios from 'axios'
   let userId = data._id;
   
 
-  axios.delete('http://localhost:8000/api/crud', { params: { userId } })
+  axios.delete('/api/crud', { params: { userId } })
       .then(response => {
           console.log(response.data)
 

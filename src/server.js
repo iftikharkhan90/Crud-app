@@ -18,14 +18,13 @@ require('./config/db-config')
 // Cors for local development
 
 
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', "*");
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header("Access-Control-Allow-Credentials", "true");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'X-Requested-With', 'Content-Type', 'Accept');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
-}
-
-    server.use(allowCrossDomain);
+});
     //some other code
  
 //Body Parser
