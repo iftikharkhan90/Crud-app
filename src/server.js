@@ -49,10 +49,10 @@ server.use(express.static('/crud-app/build'));
 
    })
 }
-// server.get('/', function (req, res) {
-//     res.custom({ success: true, message: "Hello World!" });
-// })
-server.use('/', express.static(path.join(__dirname, '/crud-app/build')));
+server.get('/', function (req, res) {
+    res.custom({ success: true, message: "Hello World!" });
+})
+// server.use('/', express.static(path.join(__dirname, '/crud-app/build')));
 
 
 //Error Control
