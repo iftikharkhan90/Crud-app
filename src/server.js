@@ -16,17 +16,12 @@ var server = express()
 require('./config/db-config')
 
 // Cors for local development
-var corsOptions = {
-    credentials: true,
-    origin:   'https://frozen-caverns-68234.herokuapp.com',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-server.use(cors(corsOptions))
+
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With', 'Content-Type', 'Accept');
     next();
 }
 
