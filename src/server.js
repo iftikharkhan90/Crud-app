@@ -45,7 +45,7 @@ if (process.env.NODE_ENV === 'production'){
 server.use(express.static('/crud-app/build'));
 
    server.get('*', (req, res)=>{
-     res.sendFile(path.resolve(__dirname,  'crud-app/build'))
+     res.sendFile(path.resolve( './crud-app/build/index.html'))
 
    })
 }
