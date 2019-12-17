@@ -59,7 +59,7 @@ server.get('/', function (req, res) {
 server.use(function (err, req, res, next) {
 
     console.error(err)
-    res.status(500).send('Something broke!')
+    res.status(500).send(err)
 
 })
 
