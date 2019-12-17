@@ -31,7 +31,7 @@ server.use(bodyParser.json())
 //Sending static files for root
 
 
-server.use('/uploads', express.static(path.resolve(__dirname, '../uploads')))
+// server.use('/uploads', express.static(path.resolve(__dirname, '../uploads')))
 // server.use('/', express.static(path.resolve(__dirname, '../build')))
 
 //Use Custom Middleware to get custom response template in all api routes
