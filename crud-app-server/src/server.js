@@ -44,7 +44,7 @@ if (process.env.NODE_ENV === 'production'){
     //Sending static files for root
 server.use(express.static('crud-app/build'));
 
-   app.get('*', (req, res)=>{
+server.get('*', (req, res)=>{
      res.sendFile(path.resolve(__dirname, 'crud-app', 'build', 'index.html'))
 
    })
