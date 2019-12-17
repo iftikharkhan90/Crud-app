@@ -42,16 +42,17 @@ server.use('/api/crud', crudRouter)
   
 if (process.env.NODE_ENV === 'production'){
     //Sending static files for root
-server.use(express.static('crud-app/build'));
+server.use(express.static('/crud-app/build'));
 
    server.get('*', (req, res)=>{
      res.sendFile(path.resolve(__dirname, 'crud-app', 'build', 'index.html'))
 
    })
 }
-server.get('/', function (req, res) {
-    res.custom({ success: true, message: "Hello World!" });
-})
+// server.get('/', function (req, res) {
+//     res.custom({ success: true, message: "Hello World!" });
+// })
+server.use('/', express.static(path.join(__dirname, '/crud-app/build')));
 
 
 //Error Control
