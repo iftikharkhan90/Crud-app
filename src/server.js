@@ -18,7 +18,7 @@ require('./config/db-config')
 // Cors for local development
 var corsOptions = {
     credentials: true,
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:3000' || process.env.NODE_ENV,
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 server.use(cors(corsOptions))
@@ -29,10 +29,10 @@ var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 }
-server.configure(function() {
+
     server.use(allowCrossDomain);
     //some other code
-}); 
+ 
 //Body Parser
 server.use(bodyParser.urlencoded({ extended: true }))
 server.use(bodyParser.json())
