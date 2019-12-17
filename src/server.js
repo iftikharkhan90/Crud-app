@@ -31,7 +31,7 @@ server.use(bodyParser.json())
 //Sending static files for root
 
 
-server.use('/uploads', express.static(path.resolve(__dirname, '../uploads')))
+
 // server.use('/', express.static(path.resolve(__dirname, '../build')))
 
 //Use Custom Middleware to get custom response template in all api routes
@@ -42,9 +42,9 @@ server.use('/api/crud', crudRouter)
   
 if (process.env.NODE_ENV === 'production'){
     //Sending static files for root
-server.use(express.static('../crud-app/build'));
+server.use(express.static('crud-app/build'));
 
-   app.get('*', (req, res)=>{
+   server.get('*', (req, res)=>{
      res.sendFile(path.resolve(__dirname, 'crud-app', 'build', 'index.html'))
 
    })
