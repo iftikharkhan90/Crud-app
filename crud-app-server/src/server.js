@@ -29,7 +29,8 @@ server.use(bodyParser.urlencoded({ extended: true }))
 server.use(bodyParser.json())
 
 //Sending static files for root
-server.use(express.static(path.resolve(__dirname, '../build')))
+
+
 server.use('/uploads', express.static(path.resolve(__dirname, '../uploads')))
 // server.use('/', express.static(path.resolve(__dirname, '../build')))
 
@@ -38,7 +39,16 @@ server.use(customResponse)
 
 //Setting Routes
 server.use('/api/crud', crudRouter)
+  
+if (process.env.NODE_ENV === 'production'){
+    //Sending static files for root
+server.use(express.static('../crud-app/build'));
 
+   app.get('*', (req, res)=>{
+     res.sendFile(path.resolve(__dirname, 'crud-app', 'build', 'index.html'))
+
+   })
+}
 server.get('/', function (req, res) {
     res.custom({ success: true, message: "Hello World!" });
 })
