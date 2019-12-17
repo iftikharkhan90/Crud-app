@@ -18,7 +18,7 @@ require('./config/db-config')
 // Cors for local development
 var corsOptions = {
     credentials: true,
-    origin: 'http://localhost:3000' || 'https://frozen-caverns-68234.herokuapp.com',
+    origin:   'https://frozen-caverns-68234.herokuapp.com',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 server.use(cors(corsOptions))
